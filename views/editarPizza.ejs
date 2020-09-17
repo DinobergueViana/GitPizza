@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastrar Pizza</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/form-add-pizza.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <form action="/add" method="POST">
+                <label for="nome">Nome:</label>
+                <div>
+                    <input type="text" id="nome" name="nome" value="<%=pizza.nome%>">
+                </div>  
+
+                <label for="ingredientes">Ingredientes:</label>
+                <div>
+                    <input type="text" id="ingredientes" name="ingredientes" value="<%=pizza.ingredientes[0]%>, <%=pizza.ingredientes[1]%>, <%=pizza.ingredientes[2]%>">
+                </div> 
+
+                <label for="preco">Preço:</label>
+                <div>
+                    <input type="text" id="preco" name="preco" value="<%=pizza.preco%>,00">
+                </div>
+                
+                <label for="foto">Foto:</label>
+                <article>
+                    <img src="../img/no-image.png">
+                    <div>Selecione uma foto</div>
+                    <input type="text" name="img">
+                </article>
+                <button class="salvar">Salvar</button>
+
+            </form>
+
+        </main>
+    </body>
+</html>
