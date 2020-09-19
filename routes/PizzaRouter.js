@@ -11,7 +11,7 @@ router.get('/pizza/:indice', pizzasController.show);
 router.get('/add', pizzasController.adicionar);
 router.post('/add', pizzasController.salvarPizza);
 router.get('/editar', pizzasController.editar);
-router.post('editar', pizzasController.atualizarPizza);
+// router.post('/editar/', pizzasController.atualizarPizza);
 
 
 module.exports = router;

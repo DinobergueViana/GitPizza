@@ -16,12 +16,12 @@ const pizzasController = {
         res.render('addPizza');
     },
     editar: (req, res) => {
-        let pizza = listaPizzas[0]
+        let pizza = listaPizzas[0];
         res.render('editarPizza', {pizza});
     },
-    atualizarPizza: (req, res) => {
-
-    },
+    // atualizarPizza: (req, res) => {
+        
+    // },
     salvarPizza: (req, res) => {
         let {nome, preco, ingredientes} = req.body;
         // transforma string em array
