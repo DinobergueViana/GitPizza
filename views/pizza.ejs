@@ -17,7 +17,7 @@
 		<h1><%= pizza.nome%></h1>
 		<h2>R$ <%=pizza.preco%>,00</h2>
 		<img src="../<%=pizza.img%>" alt="<%=pizza.nome%>">
-		<div>Ingredientes: <%=pizza.ingredientes%> </div>
+		<div>Ingredientes: <%=pizza.ingredientes.join(', ') %> </div>
 		<button>+ Add</button>
     </main>
 

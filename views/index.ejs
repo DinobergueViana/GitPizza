@@ -19,7 +19,7 @@
 		<% for(var i=0; i < listaPizzas.length; i++) { %>
 		<article>
 			<img src="<%= listaPizzas[i].img %>">
-			<a href="/pizza/<%=[i]%>">Ver Mais</a>
+			<a href="/pizza/<%=i%>">Ver Mais</a>
 			<button>+ Add</button>
 			<div> <%= listaPizzas[i].nome %> </div>
 			<span>R$<%= listaPizzas[i].preco %></span>
