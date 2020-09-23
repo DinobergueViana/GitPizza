@@ -16,12 +16,27 @@ const pizzasController = {
         res.render('addPizza');
     },
     editar: (req, res) => {
-        let pizza = listaPizzas[0];
+        let {id} = req.params;
+        let pizza = listaPizzas.find((pizza)=>{
+            return pizza.id == id;
+        })
         res.render('editarPizza', {pizza});
     },
-    // atualizarPizza: (req, res) => {
-        
-    // },
+    atualizarPizza: (req, res) => {
+        let {id} = req.params;
+        pizza = listaPizzas.find( (pizza) => {
+            return pizza.id == id;
+        });
+
+        let { nome, ingredientes, preco } = req.body;
+        pizza.nome = nome;
+        pizza.ingredientes = ingredientes.split(',');
+        pizza.preco = preco;
+        fs.writeFileSync(path.join('data-base', 'pizzas.json'), JSON.stringify(listaPizzas));
+
+        res.redirect('/');
+
+    },
     salvarPizza: (req, res) => {
         let {nome, preco, ingredientes} = req.body;
         // transforma string em array

@@ -10,7 +10,7 @@
     </head>
     <body>
         <main>
-            <form action="/editar" method="POST">
+            <form action="/editar/<%=pizza.id%>?_method=PUT" method="POST">
                 <label for="nome">Nome:</label>
                 <div>
                     <input type="text" id="nome" name="nome" value="<%=pizza.nome%>">
@@ -18,12 +18,12 @@
 
                 <label for="ingredientes">Ingredientes:</label>
                 <div>
-                    <input type="text" id="ingredientes" name="ingredientes" value="<%=pizza.ingredientes[0]%>, <%=pizza.ingredientes[1]%>, <%=pizza.ingredientes[2]%>">
+                    <input type="text" id="ingredientes" name="ingredientes" value="<%=pizza.ingredientes.join(', ')%>">
                 </div> 
 
                 <label for="preco">Preço:</label>
                 <div>
-                    <input type="text" id="preco" name="preco" value="<%=pizza.preco%>,00">
+                    <input type="text" id="preco" name="preco" value="<%=pizza.preco%>">
                 </div>
                 
                 <label for="foto">Foto:</label>
@@ -33,7 +33,6 @@
                     <input type="text" name="img">
                 </article>
                 <button class="salvar">Salvar</button>
-
             </form>
 
         </main>

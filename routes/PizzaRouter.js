@@ -10,8 +10,8 @@ router.get('/', pizzasController.index);
 router.get('/pizza/:indice', pizzasController.show);
 router.get('/add', pizzasController.adicionar);
 router.post('/add', pizzasController.salvarPizza);
-router.get('/editar', pizzasController.editar);
-// router.post('/editar/', pizzasController.atualizarPizza);
+router.get('/editar/:id', pizzasController.editar);
+router.put('/editar/:id', pizzasController.atualizarPizza);
 
 
 module.exports = router;
