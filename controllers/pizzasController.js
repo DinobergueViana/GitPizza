@@ -22,7 +22,7 @@ const pizzasController = {
         })
         res.render('editarPizza', {pizza});
     },
-    atualizarPizza: (req, res) => {
+    update: (req, res) => {
         let {id} = req.params;
         pizza = listaPizzas.find( (pizza) => {
             return pizza.id == id;
@@ -35,7 +35,23 @@ const pizzasController = {
         fs.writeFileSync(path.join('data-base', 'pizzas.json'), JSON.stringify(listaPizzas));
 
         res.redirect('/');
+    },
+    // realiza busca na base de dados e retorna a pizza pesquisa com base no nome
+    searc: (req, res) => {
+        let nomePizza = req.query.q;
+        let resultadoBusca = listaPizzas.filter((pizza) => {
+            return pizza.nome == nomePizza;
+        });
 
+        if(resultadoBusca == 0){
+            console.log('Pizza não encontrada!');
+            res.redirect('/');
+            
+        }else{
+            console.log('Pizza encontrada!');
+            res.send(resultadoBusca);
+        }
+        
     },
     salvarPizza: (req, res) => {
         let {nome, preco, ingredientes} = req.body;
