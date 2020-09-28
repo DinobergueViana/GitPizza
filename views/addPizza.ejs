@@ -10,7 +10,7 @@
     </head>
     <body>
         <main>
-            <form action="/add" method="POST">
+            <form action="/add" method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome:</label>
                 <div>
                     <input type="text" id="nome" name="nome" placeholder="Digite o nome da pizza">
@@ -29,8 +29,8 @@
                 <label for="foto">Foto:</label>
                 <article>
                     <img src="../img/no-image.png">
-                    <div>Selecione uma foto></div>
-                    <input type="text" name="img">
+
+                    <input type="file" name="img" value="Selecione uma foto>">
                 </article>
                 <button class="salvar">Salvar</button>
 

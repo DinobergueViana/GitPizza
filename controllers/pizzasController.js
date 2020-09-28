@@ -37,7 +37,7 @@ const pizzasController = {
         res.redirect('/');
     },
     // realiza busca na base de dados e retorna a pizza pesquisa com base no nome
-    searc: (req, res) => {
+    search: (req, res) => {
         let nomePizza = req.query.q;
         let resultadoBusca = listaPizzas.filter((pizza) => {
             return pizza.nome == nomePizza;
@@ -58,14 +58,18 @@ const pizzasController = {
         // transforma string em array
         ingredientes = ingredientes.split(',');
         // cria o id do registro
-        let id = listaPizzas.length + 1
+        let id = listaPizzas.length + 1;
+
+        // separando nome img
+        let img = 'img/' + req.files[0].originalname;
+        console.log(img);
 
         //adiciona um registro de pizza na base de dados
         listaPizzas.push({
             id: id,
             nome: nome,
             preco: preco,
-            img: "",
+            img: img,
             ingredientes: ingredientes
         });
 
