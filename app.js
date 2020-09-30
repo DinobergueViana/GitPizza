@@ -6,6 +6,7 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 
 var PizzaRouter = require('./routes/PizzaRouter');
+var usersRouter = require('./routes/usersRouter')
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
 
 app.use('/', PizzaRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
