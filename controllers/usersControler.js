@@ -11,7 +11,7 @@ const usersControler = {
         res.render('createUser')
     },
     show: (req, res) => {
-        res.render('login-user')
+        res.render('login')
     },
     store: (req, res) => {
         let { nome, email, senha, confirma } = req.body;
