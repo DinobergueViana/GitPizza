@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+const session = require('express-session');
 
 var PizzaRouter = require('./routes/PizzaRouter');
 var usersRouter = require('./routes/usersRouter')
@@ -20,6 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
+app.use(session({ secret: 'Pizzaria' }));
+
 
 app.use('/', PizzaRouter);
 app.use('/user', usersRouter);

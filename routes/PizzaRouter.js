@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const auth = require('../middlewares/auth')
 
 const storage = multer.diskStorage({
     destination: (req,file, cb) => {
@@ -17,10 +18,10 @@ const pizzasController = require('../controllers/pizzasController');
 
 router.get('/', pizzasController.index);
 router.get('/pizza/:indice', pizzasController.show);
-router.get('/add', pizzasController.adicionar);
-router.post('/add', upload.any(), pizzasController.salvarPizza);
-router.get('/editar/:id', pizzasController.editar);
-router.put('/editar/:id', upload.any(), pizzasController.update);
+router.get('/add', auth, pizzasController.adicionar);
+router.post('/add', auth, upload.any(), pizzasController.salvarPizza);
+router.get('/editar/:id', auth, pizzasController.editar);
+router.put('/editar/:id', auth, upload.any(), pizzasController.update);
 router.get('/buscar/?', pizzasController.search);
 
 
